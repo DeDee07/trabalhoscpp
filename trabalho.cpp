@@ -21,8 +21,8 @@ int lerOpcao() {
 	int opc;
 	cout << "\n===== MENU =====\n";
 	cout << "1) Adivinha o número\n";
-	cout << "2) Inverter uma string\n";
-	cout << "3) Mostrar data/hora atual\n";
+	cout << "2) Inverter uma palavra\n";
+	cout << "3) Inverter Minusculas por Maiusculas\n";
 	cout << "0) Sair\n";
 	cout << "Escolha uma opção: ";
 	if (!(cin >> opc)) {
@@ -57,17 +57,18 @@ void opcaoInverterString() {
 	cout << "Invertido: " << s << "\n";
 }
 
-void opcaoMostrarDataHora() {
-	time_t agora = time(nullptr);
-	char buf[64];
-	tm localt;
-#ifdef _WIN32
-	localtime_s(&localt, &agora);
-#else
-	localtime_r(&agora, &localt);
-#endif
-	strftime(buf, sizeof(buf), "%d/%m/%Y %H:%M:%S", &localt);
-	cout << "Data/Hora local: " << buf << "\n";
+void opcao_trocar_minuscolas_por_maiuscolas() {
+	cout << "Digite uma linha de texto: ";
+	string s;
+	getline(cin, s);
+	for (char& c : s) {
+		if (islower(c)) {
+			c = toupper(c);
+		} else if (toupper(c)) {
+			c = islower(c);
+		}
+	}
+	cout << "Resultado: " << s << "\n";
 }
 
 int main() {
@@ -87,7 +88,7 @@ int main() {
 				pausa();
 				break;
 			case 3:
-				opcaoMostrarDataHora();
+				opcao_trocar_minuscolas_por_maiuscolas();
 				pausa();
 				break;
 			default:
