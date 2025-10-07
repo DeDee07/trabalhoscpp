@@ -20,20 +20,20 @@ void pausa() {
 int lerOpcao() {
 	int opc;
 	cout << "\n===== MENU =====\n";
-	cout << "1) Somar dois números\n";
+	cout << "1) Adivinha o número\n";
 	cout << "2) Inverter uma string\n";
 	cout << "3) Mostrar data/hora atual\n";
 	cout << "0) Sair\n";
 	cout << "Escolha uma opção: ";
 	if (!(cin >> opc)) {
 		limparEntrada();
-		return -1; // entrada inválida
+		return -1;
 	}
 	limparEntrada();
 	return opc;
 }
 
-void opcaoSomar() {
+void opcao_adv_numero() {
 	double a, b;
 	cout << "Digite o primeiro número: ";
 	while (!(cin >> a)) {
@@ -79,7 +79,7 @@ int main() {
 		}
 		switch (opc) {
 			case 1:
-				opcaoSomar();
+				opcao_adv_numero();
 				pausa();
 				break;
 			case 2:
