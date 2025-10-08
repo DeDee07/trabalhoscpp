@@ -57,15 +57,15 @@ void opcaoInverterString() {
 	cout << "Invertido: " << s << "\n";
 }
 
-void opcao_trocar_minuscolas_por_maiuscolas() {
+void opcao_trocar_minusculas_por_maiusculas() {
 	cout << "Digite uma linha de texto: ";
 	string s;
 	getline(cin, s);
 	for (char& c : s) {
 		if (islower(c)) {
 			c = toupper(c);
-		} else if (toupper(c)) {
-			c = islower(c);
+		} else if (isupper(c)) {
+			c = tolower(c);
 		}
 	}
 	cout << "Resultado: " << s << "\n";
@@ -88,7 +88,7 @@ int main() {
 				pausa();
 				break;
 			case 3:
-				opcao_trocar_minuscolas_por_maiuscolas();
+				opcao_trocar_minusculas_por_maiusculas();
 				pausa();
 				break;
 			default:
